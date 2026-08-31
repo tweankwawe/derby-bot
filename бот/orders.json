@@ -1,0 +1,23 @@
+{
+    "last_order": 1002,
+    "orders": [
+        {
+            "id": 1001,
+            "product": "Slasher",
+            "price": 90,
+            "user_id": 7638946848,
+            "username": "ya5sbd",
+            "name": "Ваня",
+            "status": "Новый"
+        },
+        {
+            "id": 1002,
+            "product": "Treat",
+            "price": 524,
+            "user_id": 7638946848,
+            "username": "ya5sbd",
+            "name": "Ваня",
+            "status": "Новый"
+        }
+    ]
+}
