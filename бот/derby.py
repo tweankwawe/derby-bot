@@ -10,21 +10,14 @@ from telegram.ext import (
 )
 
 
-# =========================
-# НАСТРОЙКИ
-# =========================
 
 TOKEN = os.environ["BOT_TOKEN"]
 ADMIN_ID = 7638946848
 ORDERS_FILE = "orders.json"
 
-# Защита от повторной обработки
+
 PROCESSED_CALLBACKS = set()
 
-
-# =========================
-# ТОВАРЫ
-# =========================
 
 PRODUCTS = {
     "godly": [
@@ -94,10 +87,6 @@ CATEGORY_NAMES = {
 }
 
 
-# =========================
-# ЗАКАЗЫ
-# =========================
-
 def load_orders():
     if not os.path.exists(ORDERS_FILE):
         return {
@@ -148,9 +137,6 @@ def create_order(name, price, user):
     return order_id
 
 
-# =========================
-# ГЛАВНОЕ МЕНЮ
-# =========================
 
 def main_menu():
     keyboard = [
@@ -164,9 +150,7 @@ def main_menu():
     return InlineKeyboardMarkup(keyboard)
 
 
-# =========================
-# START
-# =========================
+
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
@@ -177,9 +161,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 
-# =========================
-# КАТЕГОРИЯ
-# =========================
+
 
 async def show_category(update, context):
     query = update.callback_query
@@ -210,10 +192,6 @@ async def show_category(update, context):
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
 
-
-# =========================
-# ТОВАР
-# =========================
 
 async def show_product(update, context):
     query = update.callback_query
@@ -248,10 +226,6 @@ async def show_product(update, context):
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
 
-
-# =========================
-# ПОКУПКА
-# =========================
 
 async def buy_product(update, context):
     query = update.callback_query
@@ -289,9 +263,6 @@ async def buy_product(update, context):
         else "нет username"
     )
 
-    # =========================
-    # ПОКУПАТЕЛЮ
-    # =========================
 
     await query.edit_message_text(
         f"🛒 ЗАКАЗ #{order_id}\n\n"
@@ -309,9 +280,6 @@ async def buy_product(update, context):
         ])
     )
 
-    # =========================
-    # АДМИНИСТРАТОРУ
-    # =========================
 
     await context.bot.send_message(
         chat_id=ADMIN_ID,
@@ -325,11 +293,6 @@ async def buy_product(update, context):
             "📌 Статус: Новый"
         )
     )
-
-
-# =========================
-# КНОПКИ
-# =========================
 
 async def button(update, context):
     query = update.callback_query
@@ -352,10 +315,6 @@ async def button(update, context):
             reply_markup=main_menu()
         )
 
-
-# =========================
-# ЗАПУСК
-# =========================
 
 def main():
     print("Derby Shop запускается...")
