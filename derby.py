@@ -28,23 +28,27 @@ ORDERS_FILE = os.path.join(
 PRODUCTS = {
     "godly": [
         ("Snowcannon", 2069),
+        ("Heart Wand", 1098),
+        ("Snowstorm", 897),
+        ("Blizzard", 780),
         ("Harvester", 760),
         ("Snow Dagger", 632),
-        ("Watergun", 547),
+        ("Watergun", 562),
         ("Treat", 524),
-        ("Sweet", 480),
+        ("Sweet", 513),
         ("Bat", 470),
-        ("Ornament", 360),
-        ("Beach", 350),
+        ("Icecream", 464)
+        ("Ornament", 320),
+        ("Beachy", 350),
+        ("Candy", 350)
         ("Sands", 340),
-        ("Candy", 290),
         ("Heartblade", 280),
+        ("Lightbringer", 260)
+        ("Elderwood Revolver", 196)
         ("Phantom", 135),
         ("Iceblaster", 132),
         ("Sugar", 131),
         ("Darkbringer", 130),
-        ("Elderwood Revolver", 130),
-        ("Lightbringer", 110),
         ("Plasmabeam", 110),
         ("Amerilaser", 106),
         ("Laser", 101),
